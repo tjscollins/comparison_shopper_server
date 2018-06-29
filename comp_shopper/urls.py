@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import ui.views as uiviews
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', uiviews.home_page, name='home')
 ]

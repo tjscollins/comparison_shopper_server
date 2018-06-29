@@ -1,7 +1,9 @@
 from django.test import TestCase
+from django.urls import resolve
+# from product_info.views import product_page
+
 
 # Create your tests here.
-class SmokeTest(TestCase):
+# class ProductPageTest(TestCase):
 
-    def test_bad_math(self):
-        self.assertEqual(2, 3)
+#     def test_
