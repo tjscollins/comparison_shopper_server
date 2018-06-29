@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/tjscollins/.virtualenvs/comp_shopper/bin/python"
+    "python.pythonPath": "/home/tjscollins/.virtualenvs/comp_shopper/bin/python",
+    "python.linting.enabled": true
 }
