@@ -3,6 +3,8 @@ from django.urls import resolve
 from django.http import HttpRequest
 
 from ui.views import home_page
+from ui.models import GroceryList
+from product_info.models import Product
 
 
 # Create your tests here.
@@ -24,3 +26,5 @@ class HomePageTest(TestCase):
 
         self.assertIn('Cheese', response.content.decode())
         self.assertTemplateUsed(response, 'home.html')
+    
+    def test_save_grocery_list(self):

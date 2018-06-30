@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve
 from product_info.models import Product
 
+
 # Create your tests here.
 class ProductTest(TestCase):
 
