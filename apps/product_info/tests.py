@@ -25,4 +25,3 @@ class ProductTest(TestCase):
 
         self.assertEqual(first_product.name, first_saved_product.name)
         self.assertEqual(second_product.name, second_saved_product.name)
-
