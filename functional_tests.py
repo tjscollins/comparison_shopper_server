@@ -41,7 +41,8 @@ class NewVisitorTest(TestCase):
         table = self.browser.find_element_by_id('list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == 'Cheese' for row in rows)
+            any(row.text == 'Cheese' for row in rows),
+            msg="Prices for cheese did not appear in the table"
         )
 
         # There is still a text box inviting Joe to enter another item.  Joe
