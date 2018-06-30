@@ -42,14 +42,26 @@ class NewVisitorTest(TestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
             any(row.text == 'Cheese' for row in rows),
-            msg="Prices for cheese did not appear in the table"
+            msg=f"Prices for cheese did not appear in the table.  Contents were: {table.text}"
         )
 
         # There is still a text box inviting Joe to enter another item.  Joe
         # types in "milk"
+        input_box = self.browser.find_element_by_id('new_item')
+        input_box.send_keys('milk')
+        input_box.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         # The page updates again, and now both items appear, each with their
         # own list of prices
+        table = self.browser.find_element_by_id('list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn('Cheese', [row.text for row in rows],
+            msg=f"Prices for cheese did not appear in the table after adding milk.  Contents were: {table.text}"
+        )
+        self.assertIn('Milk', [row.text for row in rows],
+            msg=f"Prices for milk did not appear in the table.  Contents were: {table.text}"
+        )
 
         # A third list appears on the right, listing a combined price for Joe's
         # list at each store in his area.
